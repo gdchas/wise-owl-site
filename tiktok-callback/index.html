@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connecting TikTok · Wise Owl Retirement</title><link rel="icon" href="/owl.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet"><style>
+:root{--ink:#1D1D2C;--cream:#FFF8EE;--gold:#FFB703;--blue:#2F6FED;--teal:#2A9D8F;--muted:#5b5b6e}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 "Nunito",system-ui,-apple-system,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 20px 60px}
+h1,h2{font-family:"Fredoka","Nunito",system-ui,sans-serif;line-height:1.15}
+a{color:var(--blue)}footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:2px dashed #e4dccd;padding-top:16px}
+footer a{color:var(--muted);margin-right:14px}
+.btn{display:inline-block;padding:12px 22px;border:4px solid var(--ink);border-radius:999px;box-shadow:0 6px 0 var(--ink);font-weight:800;text-decoration:none;color:#fff;margin:6px 8px 6px 0}
+</style></head><body><div class="wrap">
+<h1>Connecting TikTok</h1>
+<div id="ok" hidden><p>TikTok sign-in worked. Copy this whole address and paste it into the terminal where the uploader is waiting:</p>
+<p><textarea id="url" readonly style="width:100%;height:110px;font:14px monospace;padding:10px;border:3px solid var(--ink);border-radius:12px"></textarea></p>
+<p><button id="copy" class="btn" style="background:var(--teal);cursor:pointer">Copy</button></p></div>
+<div id="err" hidden><p>TikTok didn't return a sign-in code. <span id="why"></span> Go back to the terminal and try again.</p></div>
+<div id="none"><p>This page completes the TikTok connection for the Wise Owl Retirement uploader. There's nothing to do here directly.</p></div>
+<script>
+const q = new URLSearchParams(location.search);
+if (q.get('code')) { document.getElementById('ok').hidden = false; document.getElementById('none').hidden = true;
+  const t = document.getElementById('url'); t.value = location.href; t.select();
+  document.getElementById('copy').onclick = () => { t.select(); navigator.clipboard?.writeText(location.href); document.getElementById('copy').textContent = 'Copied ✓'; }; }
+else if (q.get('error')) { document.getElementById('err').hidden = false; document.getElementById('none').hidden = true;
+  document.getElementById('why').textContent = '(' + (q.get('error_description') || q.get('error')) + ')'; }
+</script><footer><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a>© 2026 Wise Owl Retirement. Educational content only, not financial, legal, or insurance advice.</footer></div></body></html>
