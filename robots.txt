@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /tiktok-callback/
+Allow: /
 
 Sitemap: https://wiseowlretirement.org/sitemap.xml
